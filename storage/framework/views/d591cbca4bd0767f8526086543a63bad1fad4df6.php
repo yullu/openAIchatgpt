@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>e Char GPT</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.bunny.net/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .title:empty:before {
+            content:attr(data-placeholder);
+            color:gray
+        }
+
+    </style>
+
+    <script src="https://unpkg.com/marked" defer></script>
+
+</head>
+<nav class="navbar fixed-top navbar-light bg-dark">
+   <div class="container">
+       <a class="navbar-brand" href="<?php echo e(url('/')); ?>" style="color: #ffffff;">Chat GPT Clone</a>
+   </div>
+</nav>
+
+<body class="antialiased">
+<div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <div class="max-w-3xl w-full mx-auto sm:px-6 lg:px-8 space-y-4 py-4">
+        <div class="text-center text-gray-800 dark:text-gray-300 py-4">
+            <h3 class="text-2xl font-bold">emaster Chat GPT AI</h3>
+        </div>
+
+        <div class="w-full rounded-md bg-white border-2 border-gray-600 p-4 min-h-[60px] h-full text-gray-600">
+            <form action="<?php echo e(url('/generate')); ?>" method="post" class="inline-flex gap-2 w-full">
+                <?php echo csrf_field(); ?>
+                <input required name="title" class="w-full outline-none text-2xl font-bold" placeholder="Enter a title..." />
+                <button class="rounded-md bg-gray-500 px-4 py-2 text-white font-semibold">Generate</button>
+            </form>
+        </div>
+        <div class="w-full rounded-md bg-white border-2 border-gray-600 p-4 min-h-[300px] h-full text-gray-600">
+            <textarea class="min-h-[300px] h-full w-full outline-none" spellcheck="false"></textarea>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<?php /**PATH C:\wamp\www\chatgpt\resources\views/text_generate.blade.php ENDPATH**/ ?>
